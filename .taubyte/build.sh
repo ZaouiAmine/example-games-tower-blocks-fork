@@ -2,6 +2,6 @@
 
 npm install
 npm run build
-rm -rf /out/*
+mv /dist/ /out
 exit 0
 
