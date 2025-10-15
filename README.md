@@ -1,4 +1,4 @@
-## Tower Blocks 
+## Tower Blocks  
 
 A small browser game where you stack moving blocks as high as possible. This repository contains the Vite + TypeScript front‑end, with optional integration to a simple leaderboard API.
 
