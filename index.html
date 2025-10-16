@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height, user-scalable=0"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="full-screen" content="yes" />
@@ -23,7 +23,7 @@
       <div id="score">0</div>
       <div id="version">v0.0.0</div>
       <div id="instructions">
-        Click (or press the spacebar) to place the block 
+        Click (or press the spacebar) to place the block
       </div>
 
       <!-- Audio Controls -->
@@ -57,6 +57,10 @@
             id="player-name"
             placeholder="Your name"
             maxlength="20"
+            autocomplete="name"
+            autocapitalize="words"
+            autocorrect="off"
+            spellcheck="false"
           />
           <button id="name-submit-btn">Continue</button>
         </div>

@@ -15,6 +15,17 @@ function onResize(): void {
 }
 
 function onTouchStart(event: TouchEvent): void {
+  // Don't prevent default if touching an input field or button
+  const target = event.target as HTMLElement;
+  if (
+    target &&
+    (target.tagName === "INPUT" ||
+      target.tagName === "BUTTON" ||
+      target.closest(".modal"))
+  ) {
+    return;
+  }
+
   event.preventDefault();
   // Only allow game actions when playing
   if (game.isPlaying()) {

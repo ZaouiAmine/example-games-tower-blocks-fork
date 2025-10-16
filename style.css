@@ -131,6 +131,14 @@ body {
   margin-bottom: 20px;
   box-sizing: border-box;
   font-family: "Comfortaa", cursive;
+  /* Mobile-specific improvements */
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
 }
 
 .modal input[type="text"]:focus {
@@ -387,6 +395,22 @@ body {
 
   .score {
     font-size: 13px;
+  }
+
+  /* Mobile input improvements */
+  .modal input[type="text"] {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 14px 12px;
+    border-radius: 6px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .modal h2 {
+    font-size: 24px;
   }
 }
 

@@ -59,7 +59,7 @@ export class ModalManager {
 
     // Ensure input is cleared and unlocked on load to avoid stale autofill
     this.playerNameInput.value = "";
-    this.playerNameInput.autocomplete = "off";
+    this.playerNameInput.autocomplete = "name";
     this.playerNameInput.spellcheck = false;
     this.playerNameInput.readOnly = false;
     this.playerNameInput.disabled = false;
@@ -140,10 +140,17 @@ export class ModalManager {
     this.playerNameInput.value = "";
     this.playerNameInput.readOnly = false;
     this.playerNameInput.disabled = false;
-    this.playerNameInput.autocomplete = "off";
+    this.playerNameInput.autocomplete = "name";
     this.playerNameInput.spellcheck = false;
 
-    this.playerNameInput.focus();
+    // Use setTimeout to ensure focus works on mobile
+    setTimeout(() => {
+      this.playerNameInput.focus();
+      // For mobile devices, also trigger click to ensure keyboard appears
+      if ("ontouchstart" in window) {
+        this.playerNameInput.click();
+      }
+    }, 100);
     // Hide global leaderboard when modal appears
     this.hideGlobalLeaderboard();
   }
