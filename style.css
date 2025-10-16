@@ -139,6 +139,11 @@ body {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
+  /* Enhanced mobile input behavior */
+  -webkit-touch-callout: none;
+  -webkit-user-modify: read-write-plaintext-only;
+  position: relative;
+  z-index: 10;
 }
 
 .modal input[type="text"]:focus {
@@ -402,6 +407,18 @@ body {
     font-size: 16px; /* Prevent zoom on iOS */
     padding: 14px 12px;
     border-radius: 6px;
+    /* Enhanced mobile input styling */
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    touch-action: manipulation;
+    /* Ensure input is properly focusable */
+    position: relative;
+    z-index: 10;
   }
 
   .modal-content {

@@ -15,13 +15,15 @@ function onResize(): void {
 }
 
 function onTouchStart(event: TouchEvent): void {
-  // Don't prevent default if touching an input field or button
+  // Don't prevent default if touching an input field, button, or modal content
   const target = event.target as HTMLElement;
   if (
     target &&
     (target.tagName === "INPUT" ||
       target.tagName === "BUTTON" ||
-      target.closest(".modal"))
+      target.closest(".modal") ||
+      target.closest("input") ||
+      target.closest("button"))
   ) {
     return;
   }

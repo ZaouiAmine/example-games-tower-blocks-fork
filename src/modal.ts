@@ -64,6 +64,12 @@ export class ModalManager {
     this.playerNameInput.readOnly = false;
     this.playerNameInput.disabled = false;
 
+    // Additional mobile input setup
+    this.playerNameInput.setAttribute("inputmode", "text");
+    this.playerNameInput.setAttribute("enterkeyhint", "done");
+    this.playerNameInput.setAttribute("autocapitalize", "words");
+    this.playerNameInput.setAttribute("autocorrect", "off");
+
     // Set up event listeners
     this.setupEventListeners();
 
@@ -95,6 +101,40 @@ export class ModalManager {
       if (e.key === "Enter") {
         this.handleNameSubmit();
       }
+    });
+
+    // Enhanced mobile input handling
+    this.playerNameInput.addEventListener(
+      "touchstart",
+      (e) => {
+        e.stopPropagation();
+      },
+      { passive: true }
+    );
+
+    this.playerNameInput.addEventListener(
+      "touchend",
+      (e) => {
+        e.stopPropagation();
+        this.playerNameInput.focus();
+      },
+      { passive: true }
+    );
+
+    // Handle input events to ensure typing works
+    this.playerNameInput.addEventListener("input", (e) => {
+      // Ensure the input is working properly
+      console.log("Input event triggered:", this.playerNameInput.value);
+    });
+
+    // Handle focus events
+    this.playerNameInput.addEventListener("focus", (e) => {
+      console.log("Input focused");
+    });
+
+    // Handle blur events
+    this.playerNameInput.addEventListener("blur", (e) => {
+      console.log("Input blurred");
     });
   }
 
@@ -143,14 +183,22 @@ export class ModalManager {
     this.playerNameInput.autocomplete = "name";
     this.playerNameInput.spellcheck = false;
 
-    // Use setTimeout to ensure focus works on mobile
-    setTimeout(() => {
+    // Enhanced mobile focus handling
+    const focusInput = () => {
       this.playerNameInput.focus();
       // For mobile devices, also trigger click to ensure keyboard appears
       if ("ontouchstart" in window) {
         this.playerNameInput.click();
+        // Additional mobile-specific focus trigger
+        this.playerNameInput.setSelectionRange(0, 0);
       }
-    }, 100);
+    };
+
+    // Use multiple timing strategies for better mobile compatibility
+    setTimeout(focusInput, 50);
+    setTimeout(focusInput, 150);
+    setTimeout(focusInput, 300);
+
     // Hide global leaderboard when modal appears
     this.hideGlobalLeaderboard();
   }
