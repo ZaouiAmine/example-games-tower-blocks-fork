@@ -2,7 +2,7 @@
 
 npm install
 npm run build
-mv dist out
+mv dist/* out/
 exit 0
 
 
