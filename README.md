@@ -127,3 +127,5 @@ If you use Taubyte or another serverless platform, store scores in a simple key/
 - Blank page or 404s to API: verify `APP_API_BASE_URL` or use same‑origin backend
 - Mixed content errors: ensure the API is HTTPS when the site is served via HTTPS
 - Dev server doesn’t open: visit `http://localhost:3000` manually
+
+<!-- remote build ping -->
